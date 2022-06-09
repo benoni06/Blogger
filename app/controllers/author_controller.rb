@@ -4,8 +4,12 @@ class AuthorController < ApplicationController
         newAuthor = Author.create(params.permit(:name,:email,:about,:img_url))
         render json:newAuthor
     end
-    def getPosts
+    def getPost
         theAuthor = Author.find(params[:id])
         render json:theAuthor.posts
     end
+    def getAuthor
+        render json:Author.find(params[:id])
+    end
+
 end
