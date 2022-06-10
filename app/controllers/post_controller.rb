@@ -17,11 +17,22 @@ class PostController < ApplicationController
     
     def getPost
         if params[:id]=="all"
-            render json:Post.all
+            posts = Post.all
+            p = []
+            for i in posts do
+                u = i.attributes
+                u["author"] = Author.find(i.author_id)
+                p.push(u)
+            end
+            
+            render json:p  
             return
         end
-        thePost = Post.find(params[:id])
-        render json: thePost
+            
+        i = Post.find(params[:id])
+        u = i.attributes
+        u["author"] = Author.find(i.author_id)
+        render json:u
     end
     def getPostAuthor
         thePost = Post.find(params[:id])

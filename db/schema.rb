@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_09_121946) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_10_172806) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "about"
     t.string "img_url"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "posts", force: :cascade do |t|
@@ -23,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_121946) do
     t.text "content"
     t.string "img_url"
     t.integer "author_id"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
