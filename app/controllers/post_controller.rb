@@ -27,4 +27,7 @@ class PostController < ApplicationController
         thePost = Post.find(params[:id])
         render json: thePost.author
     end
+    def search
+         render json: Post.where("Title like ?", "%#{params[:title]}%")
+    end
 end

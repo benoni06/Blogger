@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/post/author/:id', to:"post#getPostAuthor"
   get '/post/:id', to: "post#getPost"
+  get '/post/search/:title', to: "post#search"
   put '/post/:id', to: "post#updatePost"
   post '/post', to: "post#addPost"
   delete '/post/:id', to: "post#deletePost"
